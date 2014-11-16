@@ -1,32 +1,33 @@
 $(document).ready(function() {
 
-var loaded = [4];
-var intervalVar;
+    var loaded = [4];
+    var intervalVar;
 
-function hmming() {
-  if (loaded[0] > 0) {
-    $('#suggestion')[0].textContent = 'hmm'+['','.','..','...'][4-loaded[0]];
-    loaded[0] = loaded[0] - 1;
-  }
-  else {
-    clearInterval(intervalVar);
-  }
-}
+    function hmmDotting() {
+        if (loaded[0] > 0) {
+            $('#suggestion')[0].textContent = 'hmm' + ['', '.', '..', '...'][4 - loaded[0]];
+            loaded[0] = loaded[0] - 1;
+        } else {
+            clearInterval(intervalVar);
+        }
+    }
 
-intervalVar = window.setInterval(function() {hmming()}, 300);
+    intervalVar = window.setInterval(function() {
+        hmmDotting()
+    }, 300);
 
-function nextWord() {
-  $.get('http://burgundy.io:8080/', function(data) {
-    loaded[0] = 0;
-    $('#suggestion')[0].textContent = data;
-    clearInterval(intervalVar);
-  });
-}
+    function changeWord() {
+        $.get('http://burgundy.io:8080/', function(data) {
+            loaded[0] = 0;
+            $('#suggestion')[0].textContent = data;
+            clearInterval(intervalVar);
+        });
+    }
 
-nextWord();
+    changeWord();
 
-$(document).keypress(function(e) {
-  nextWord();
-});
+    $(document).keypress(function(e) {
+        changeWord();
+    });
 
 });
