@@ -25,7 +25,9 @@ $(document).ready(function() {
     }
 
     function adjustFont() {
-        $('#suggestion').css('font-size', parseInt($('html').css('width').replace('px',''))/7.5 + "px")
+        windowWidth = parseInt($('html').css('width').replace('px',''));
+        if (windowWidth > 850) windowWidth = 850;
+        $('#suggestion').css('font-size', windowWidth/7.5 + "px")
     }
 
     adjustFont();
