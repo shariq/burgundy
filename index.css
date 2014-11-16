@@ -2,7 +2,24 @@ html {
   background-color:#9F1D35;
 }
 
+body {
+  text-align: center;
+  margin: 20px;
+}
+
+body:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
 #suggestion {
+  display: inline-block;
+  vertical-align: middle;
+  width: 400px;
   font-family: 'Bitter', serif;
-  font-size: xx-large;
+  font-size: 1000%;
+  color: white;
 }
