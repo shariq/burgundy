@@ -1,8 +1,12 @@
 html {
   background-color:#9F1D35;
+  height: 100%;
+  min-height: 100%;
 }
 
 body {
+  height: 100%;
+  min-height: 100%;
   text-align: center;
   margin: 20px;
 }
