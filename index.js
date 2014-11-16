@@ -28,4 +28,6 @@ $(document).ready(function() {
 
     $(document).keypress(changeWord);
     $(document).click(changeWord);
+    $(document).tap(changeWord);
+    $(document).swipe(changeWord);
 });
