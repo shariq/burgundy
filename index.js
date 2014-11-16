@@ -24,8 +24,14 @@ $(document).ready(function() {
         });
     }
 
+    function adjustFont() {
+        $('#suggestion').css('font-size', parseInt($('html').css('width').replace('px',''))/7.5 + "px")
+    }
+
+    adjustFont();
     changeWord();
 
+    $(window).resize(adjustFont);
     $(document).keypress(changeWord);
     $(document).click(changeWord);
 });
