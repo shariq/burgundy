@@ -1,19 +1,7 @@
 from bottle import route, hook, response, run
-from threading import Thread
 import random
-import time
 
-words = set()
-
-def update():
-    while True:
-        try:
-            with open('words.txt') as f:
-                for word in f.read().splitlines():
-                    words.add(word)
-        except:
-            pass
-        time.sleep(15)
+words = tuple(set(map(lambda x:x.lower().strip(), open('words.txt').read().splitlines())))
 
 @hook('after_request')
 def enable_cors():
@@ -21,10 +9,6 @@ def enable_cors():
 
 @route('/')
 def index():
-    return random.choice(tuple(words))
-
-t = Thread(target = update)
-t.daemon = True
-t.start()
+    return random.choice(words)
 
 run(host = '0.0.0.0', port = 8080, server = 'tornado')
