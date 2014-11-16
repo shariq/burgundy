@@ -26,8 +26,6 @@ $(document).ready(function() {
 
     changeWord();
 
-    $(document).keypress(function(e) {
-        changeWord();
-    });
-
+    $(document).keypress(changeWord);
+    $(document).click(changeWord);
 });
