@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     changeWord();
 
-    $('#suggestion')[0].bigtext();
+//    $('#suggestion')[0].bigtext();
 
     $(document).keypress(changeWord);
     $(document).click(changeWord);
