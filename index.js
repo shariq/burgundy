@@ -1,1 +1,1 @@
-debug.log('working');
+console.log('working');
