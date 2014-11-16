@@ -18,6 +18,7 @@ intervalVar = window.setInterval(function() {hmming()}, 300);
 $.get('http://burgundy.io:8080/', function(data) {
   loaded[0] = 0;
   $('#suggestion')[0].textContent = data;
+  clearInterval(intervalVar);
 });
 
 });
