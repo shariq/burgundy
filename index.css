@@ -23,7 +23,7 @@ body:before {
 #suggestion {
   display: inline-block;
   vertical-align: middle;
-  width: 400px;
+  width: 100%;
   font-family: 'Bitter', serif;
   font-size: 750%;
   color: white;
