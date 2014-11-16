@@ -21,6 +21,7 @@ body:before {
 }
 
 #suggestion {
+  margin-bottom: 0.25em;
   display: inline-block;
   vertical-align: middle;
   width: 100%;
