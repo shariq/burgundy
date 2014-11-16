@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
 
     intervalVar = window.setInterval(function() {
-        hmmDotting()
+        hmmDotting();
     }, 300);
 
     function changeWord() {
@@ -28,6 +28,4 @@ $(document).ready(function() {
 
     $(document).keypress(changeWord);
     $(document).click(changeWord);
-    $(document).tap(changeWord);
-    $(document).swipe(changeWord);
 });
