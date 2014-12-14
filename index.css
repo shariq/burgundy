@@ -11,19 +11,12 @@ body {
   -ms-user-select: none;
   user-select: none;
   position: absolute;
+  display: table;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   text-align: center;
-}
-
-body:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -0.25em;
 }
 
 #suggestion {
@@ -35,7 +28,7 @@ body:before {
   -ms-user-select: none;
   user-select: none;
   margin-bottom: 0.25em;
-  display: inline-block;
+  display: table-cell;
   vertical-align: middle;
   width: 100%;
   font-family: 'Bitter', serif;
