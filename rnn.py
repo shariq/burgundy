@@ -45,7 +45,7 @@ def train(options = {}):
 def run(options = {}):
     cv_directory = unique(options)
     output = ''
-    for model in os.listdir():
+    for model in os.listdir(cv_directory):
         for temperature in ['0.05', '0.2', '0.4', '0.6', '0.8', '1.0']:
             if '.t7' not in model:
                 continue
