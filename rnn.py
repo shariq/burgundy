@@ -1,3 +1,9 @@
+'''
+needs to be located in the same directory as
+https://github.com/karpathy/char-rnn
+follow instructions in the repo
+'''
+
 import hashlib
 import os
 import random
