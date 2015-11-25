@@ -73,15 +73,17 @@ def forever():
     }
     while True:
         options = {}
-        for k, l in all_options:
+        for k, l in all_options.items():
             options[k] = random.choice(l)
         if exists(options):
             continue
         try:
+            print '!!!!!'
+            print str(options)
             train(options)
             output = run(options)
-            print '!!!!!' + str(options) + '!!!!!'
             print output
+            print '!!!!!'
         except:
             print '@@@@@'
             traceback.print_exc()
