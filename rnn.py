@@ -43,33 +43,43 @@ def train(options = {}):
     check_output(options_list)
 
 def run(options = {}):
-    cv_directory = unique(options)
+    if type(options) == dict:
+        cv_directory = unique(options)
+    elif type(options) == str:
+        cv_directory = options
+    else:
+        raise
+    print cv_directory
     output = ''
     for model in os.listdir(cv_directory):
         for temperature in ['0.05', '0.2', '0.4', '0.6', '0.8', '1.0']:
             if '.t7' not in model:
                 continue
-                model_path = os.path.join(cv_directory, model)
-                options_list = ['th', 'sample.lua', model_path, '-temperature', temperature, '-length', '200']
-                current_output = check_output(options_list)
-                output += model_path+' ; '+temperature+' :'+'\n'
-                output += current_output[-100:].rsplit('\n', 1)[0]
-                output += '\n\n'
+            model_path = os.path.join(cv_directory, model)
+            options_list = ['th', 'sample.lua', model_path, '-temperature', temperature, '-length', '200']
+            current_output = check_output(options_list)
+            output += model_path+' ; '+temperature+' :'+'\n'
+            output += current_output[-100:].rsplit('\n', 1)[0]
+            output += '\n\n'
     return output
+
+def runner():
+    for checkpoint_directory in filter(lambda k: len(k) == 32 and os.listdir(k), os.listdir('.')):
+        print run(checkpoint_directory)
 
 def exists(options):
     return os.path.exists(unique(options))
 
 def forever():
     all_options = {
-        'rnn_size': [64, 128],
+        #'rnn_size': [64, 128],
         'num_layers': [2, 3],
         'model': ['lstm', 'gru', 'rnn'],
-        'learning_rate': ['2e-3', '2e-6', '2e-1'],
-        'dropout': ['0', '0.3', '0.8'],
+        #'learning_rate': ['2e-3', '2e-6', '2e-1'],
+        #'dropout': ['0', '0.3', '0.8'],
         'seq_length': map(str, range(2, 8)),
         'batch_size': [1, 3, 5, 10, 20],
-        'train_frac': ['0.95', '0.99']
+        #'train_frac': ['0.95', '0.99']
     }
     while True:
         options = {}
@@ -79,7 +89,7 @@ def forever():
             continue
         try:
             print '!!!!!'
-            print str(options)
+            print str(options) + '->' + unique(options)
             train(options)
             output = run(options)
             print output
@@ -90,4 +100,5 @@ def forever():
             print '@@@@@'
 
 if __name__ == '__main__':
+    runner()
     forever()
