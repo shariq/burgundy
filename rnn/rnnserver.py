@@ -1,3 +1,6 @@
+# make sure to drop this file in the char-rnn directory
+# creates a pool of words, and adds to the pool when it starts getting too small
+
 import traceback
 import remotequeue
 import time
