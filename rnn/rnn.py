@@ -42,6 +42,10 @@ def train(options = {}):
     options_list.append(cv_directory)
     check_output(options_list)
 
+def run_temperature(model_path, temperature, chars = 200):
+    options_list = ['th', 'sample.lua', model_path, '-temperature', str(temperature), '-length', str(chars)]
+    return check_output(options_list)[-int(chars):].rsplit('\n',1)[0]
+
 def run(options = {}):
     if type(options) == dict:
         cv_directory = unique(options)
