@@ -1,4 +1,7 @@
-# I want to find all the models which may be very very good
+# this is what I used after training a bunch of models to pick which models to use
+# all just very hacky exploratory code
+# updated the same script while changing things around; it does multiple things at different sections
+
 import sys
 import pdb
 import rnn

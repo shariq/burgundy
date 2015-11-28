@@ -1,3 +1,6 @@
+# https://news.ycombinator.com/item?id=4668241
+# markov chain scoring based on 20k most common english words
+
 import requests
 from collections import Counter
 from math import log
