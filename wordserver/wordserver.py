@@ -1,7 +1,7 @@
 from bottle import route, hook, response, run
-import random
+import remotequeue
 
-words = tuple(set(map(lambda x:x.lower().strip(), open('words.txt').read().splitlines())))
+Q = remotequeue.get('127.0.0.1', 'secret')
 
 @hook('after_request')
 def enable_cors():
@@ -9,6 +9,6 @@ def enable_cors():
 
 @route('/')
 def index():
-    return random.choice(words)
+    return Q.get()
 
 run(host = '0.0.0.0', port = 8080, server = 'tornado')
