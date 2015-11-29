@@ -24,16 +24,19 @@ $(document).ready(function() {
         });
     }
 
-    function adjustFont() {
-        windowWidth = parseInt($('html').css('width').replace('px',''));
-        if (windowWidth > 850) windowWidth = 850;
-        $('#suggestion').css('font-size', windowWidth/7.5 + "px")
+    document.body.addEventListener("mousedown", tapOrClick, false);
+    document.body.addEventListener("touchstart", tapOrClick, false);
+
+    function tapOrClick(event) {
+        changeWord();
+
+        event.preventDefault();
+        return false;
     }
 
-    adjustFont();
     changeWord();
 
-    $(window).resize(adjustFont);
+    // $(window).resize(adjustFont);
     $(document).keypress(changeWord);
-    $$('body').tap(changeWord);
+    // $$('body').tap(changeWord);
 });
