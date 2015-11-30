@@ -36,7 +36,17 @@ $(document).ready(function() {
 
     changeWord();
 
-    // $(window).resize(adjustFont);
-    $(document).keydown(changeWord);
-    // $$('body').tap(changeWord);
+    var down = {};
+
+    $(document).keydown(function(event){
+        changeWord();
+        if (down['q'] == null) {
+            down['q'] = true;
+        }
+    });
+
+    $(document).keyup(function(event) {
+        down['q'] = null;
+    });
+
 });
