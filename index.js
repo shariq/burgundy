@@ -37,6 +37,6 @@ $(document).ready(function() {
     changeWord();
 
     // $(window).resize(adjustFont);
-    $(document).keypress(changeWord);
+    $(document).keydown(changeWord);
     // $$('body').tap(changeWord);
 });
