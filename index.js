@@ -39,8 +39,8 @@ $(document).ready(function() {
     var down = {};
 
     $(document).keydown(function(event){
-        changeWord();
         if (down['q'] == null) {
+            changeWord();
             down['q'] = true;
         }
     });
