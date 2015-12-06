@@ -39,14 +39,14 @@ $(document).ready(function() {
     var down = {};
 
     $(document).keydown(function(event){
-        if (down['q'] == null) {
+        if (down[event.which] == null) {
             changeWord();
-            down['q'] = true;
+            down[event.which] = true;
         }
     });
 
     $(document).keyup(function(event) {
-        down['q'] = null;
+        down[event.which] = null;
     });
 
 });
