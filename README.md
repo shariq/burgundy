@@ -9,7 +9,7 @@ https://github.com/shariq/burgundy/blob/master/wordserver/old_burgundy_words.txt
 RNN code came from:
 http://karpathy.github.io/2015/05/21/rnn-effectiveness/ 
 
-======
+
 Making your own models and wordserver
 ======
 
